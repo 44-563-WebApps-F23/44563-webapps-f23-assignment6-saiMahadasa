@@ -18,24 +18,30 @@
         height: 100px;
         cursor: pointer;
     }
+    .container{
+        width: 90%;
+        margin: 0px auto;
+    }
 </style>    
 </head>
 <body>
+    <div class="container">
     <h1>Author entry Sai Subrahmanyam</h1>
     <form>
         <label for="password">The hidden author name</label><br>
         <input type="password" id="password" value= "Dickens" name="password">
-        <br>
-        <label for="guessAuthorname">Guess the author:</label>
+        <br><br/>
+        <label for="guessAuthorname">Guess the author:</label><br>
         <input type="text" id="guessAuthor" name="guessAuthor" required>
-        <br/>
-        <input  type="button" onclick= "checkAuthor()" value="Check the guess">
+        <br/><br/>
+        <input  type="button" onclick= "checkAuthor()" value="Check the guess"><br/><br/><br/>
       </form>
       <p id="goodCounter"></p>
       <p id="oopsCounter"></p>
       <div class="img-container">
-            <img id="displayImg" onclick="selectImage()" src="./images/california.jpg" alt="California" class="myimg"/>
+            <img id="displayImg" onclick="selectImage()" src="./images/newyork.jpg" alt="city" class="myimg"/>
       </div>
+    </div>
 </body>
 <script>
 var useImage = 1;
@@ -47,11 +53,11 @@ function selectImage(){
         useImage = 2;
         break;
         case 2 : 
-        img1.src = "./images/dalls.jpg." ;
+        img1.src = "./images/dalls.jpg" ;
         useImage = 3;
         break;
         case 3 : 
-        img1.src = "./images/newyork.jpg." ;
+        img1.src = "./images/newyork.jpg" ;
         useImage = 1;
         break;
     }
@@ -68,9 +74,10 @@ function checkAuthor() {
         oops++;
         alert("Sorry");  
     }
-    document.getElementById("goodCounter").innerHTML = good;
-    document.getElementById("oopsCounter").innerHTML = oops;
+    document.getElementById("goodCounter").innerHTML = `Good count : ${good}`;
+    document.getElementById("oopsCounter").innerHTML = `Opps count : ${oops}`;
 }
 </script>
-</body>
+
+
 </html>
