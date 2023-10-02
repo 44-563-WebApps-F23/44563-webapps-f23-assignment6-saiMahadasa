@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Some tips</title>
+ </head>
+<body>
+
+<h1>Sai Subrahmanyam Mahadasa shows tip
+    amounts</h1>
+
+    <p id="tipsResult"></p>
+    <form>
+        <label for = "base amount">Enter base amount</label>
+        <input type="number" id="baseAmount" value="50"/><br/><br/>
+
+        <label for="tipPercent">Enter the tip percent</label>
+        <input type="number" id="tipPercent" value="15" /><br/><br/>
+
+        <input type="button" onclick="tips()" value="Show tip" /><br/><br/>
+    </form>
+
+    <form>
+        <input type="radio" id="sum" value="sum" name="mathOperation"  onclick="chooseUp()"/>
+        <label for="sum">sum</label> <br/>
+        <input type="radio" id="difference" value="difference" name="mathOperation"  onclick="chooseUp()"/>
+        <label for="diff">diff</label><br/>
+        <input type="radio" id="product" value="product" name="mathOperation"  onclick="chooseUp()"/>
+        <label for="mult">mult</label><br/>
+    </form>
+    <p id="radioResult"></p>
+
+<script> 
+function chooseUp(){
+    let baseAmount = parseFloat(document.getElementById("baseAmount").value);
+    let tipPercent = parseFloat( document.getElementById("tipPercent").value);
+    let tipVal = parseFloat((baseAmount * tipPercent)/100); 
+    let operation = document.querySelector('input[name="mathOperation"]:checked').value;
+    console.log(operation);
+    let outPut = "";
+    switch (operation) {
+        case 'sum':
+            outPut = `The sum is ${baseAmount} + ${tipVal} = ${baseAmount + tipVal}`;
+            break;
+        case 'difference':
+            outPut = `The diff is ${baseAmount} - ${tipVal} = ${baseAmount - tipVal}`;
+            break;
+        case 'product': 
+            outPut = `The multiplication is ${baseAmount} * ${tipVal} = ${baseAmount * tipVal}`;
+    }
+    document.getElementById("radioResult").innerHTML = outPut;
+    
+}
+
+function tips(){
+    let baseAmount = parseFloat(document.getElementById("baseAmount").value);
+    let tipPercent = parseFloat( document.getElementById("tipPercent").value);
+    let myOutput = "";
+   for(let i =0 ; i<=5 ; i++){
+    const calculateTip = baseAmount * (1 + (tipPercent + i * 4) / 100);
+    myOutput += `For <b>${tipPercent + i * 4}%</b> percent the calculated tip is: <b>${calculateTip.toFixed(2) }</b><br/> `;
+   }
+   document.getElementById("tipsResult").innerHTML = myOutput;
+}
+
+// function resolveForm (){
+//     console.log("Getting form values")
+//     age = document.getElementById("form1_age").value
+//     nick = document.getElementById("form1_nick").value
+//     confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+//     out = document.getElementById("result")
+//     if(confirmed){
+//         out.innerHTML = "Values were confirmed"
+//     } else {
+//         out.innerHTML = "Values were not confirmed"
+//     }
+// }
+</script>
+
+</body>
+</html> 
