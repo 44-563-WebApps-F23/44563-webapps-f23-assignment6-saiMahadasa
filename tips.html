@@ -2,29 +2,60 @@
 <html>
  <head>
     <title>Some tips</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" 
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <style>
+        .myform{
+            width: 50%;
+           margin-left: 20px;
+        }
+    </style>
  </head>
 <body>
 
-<h1>Sai Subrahmanyam Mahadasa shows tip
-    amounts</h1>
+    <h1>Sai Subrahmanyam Mahadasa shows tip amounts</h1>
+    <div class="myform">
+        
 
     <p id="tipsResult"></p>
     <form>
-        <label for = "base amount">Enter base amount</label>
-        <input type="number" id="baseAmount" value="50"/><br/><br/>
-        <label for="tipPercent">Enter the tip percent</label>
-        <input type="number" id="tipPercent" value="15" /><br/><br/>
-        <input type="button" onclick="tips()" value="Show tip" /><br/><br/>
+        <div class="form-group">
+            <label for = "base amount">Enter base amount</label>
+            <input type="number" id="baseAmount" class="form-control" value="50"/>
+        </div>
+        <div class="form-group">
+            <label for="tipPercent">Enter the tip percent</label>
+            <input type="number" id="tipPercent" class="form-control" value="15" />
+        </div><br/>
+       <div class="form-group">
+        <button type="button" class="btn btn-primary" onclick="tips()">Show tip</button>
+       </div>
+       <br/>
     </form>
     <form>
-        <input type="radio" id="sum" value="sum" name="mathOperation"  onclick="chooseUp()"/>
-        <label for="sum">sum</label> <br/>
-        <input type="radio" id="difference" value="difference" name="mathOperation"  onclick="chooseUp()"/>
-        <label for="diff">diff</label><br/>
-        <input type="radio" id="product" value="product" name="mathOperation"  onclick="chooseUp()"/>
-        <label for="mult">mult</label><br/>
+        <div class="form-group">
+            <input class="form-check-input" type="radio" id="sum" value="sum" name="mathOperation"  onclick="chooseUp()"/>
+            <label for="sum">sum</label> 
+        </div>
+        <div class="form-group">
+            <input  class="form-check-input"  type="radio" id="difference" value="difference" name="mathOperation"  onclick="chooseUp()"/>
+            <label for="diff">diff</label>
+        </div>
+        <div class="form-group">
+            <input type="radio" id="product"  class="form-check-input" value="product" name="mathOperation"  onclick="chooseUp()"/>
+            <label for="mult">mult</label>
+        </div>
     </form>
     <p id="radioResult"></p>
+    </div>
+
 <script> 
 function chooseUp(){
     let baseAmount = parseFloat(document.getElementById("baseAmount").value);
@@ -45,6 +76,7 @@ function chooseUp(){
     document.getElementById("radioResult").innerHTML = outPut;
 }
 function tips(){
+    console.log("fdffd")
     let baseAmount = parseFloat(document.getElementById("baseAmount").value);
     let tipPercent = parseFloat( document.getElementById("tipPercent").value);
     let myOutput = "";
