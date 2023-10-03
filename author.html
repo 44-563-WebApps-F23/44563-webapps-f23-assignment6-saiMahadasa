@@ -28,13 +28,17 @@
     <div class="container">
     <h1>Author entry Sai Subrahmanyam</h1>
     <form>
-        <label for="password">The hidden author name</label><br>
-        <input type="password" id="password" value= "Dickens" name="password">
-        <br><br/>
+        <div class="form-group">
+            <label for="password">The hidden author name</label><br>
+            <input class="form-control" type="password" id="password" value= "Dickens" name="password">
+        </div>
+       <div class="form-group">
         <label for="guessAuthorname">Guess the author:</label><br>
-        <input type="text" id="guessAuthor" name="guessAuthor" required>
-        <br/><br/>
-        <input  type="button" onclick= "checkAuthor()" value="Check the guess"><br/><br/><br/>
+        <input class="form-control" type="text" id="guessAuthor" name="guessAuthor" required>
+       </div><br/>
+       <div class="form-group">
+        <button type="button" class="btn btn-primary" id="authorBtn" onclick= "checkAuthor()" >Check the guess</button>
+       </div>
       </form>
       <p id="goodCounter"></p>
       <p id="oopsCounter"></p>
@@ -44,6 +48,7 @@
     </div>
 </body>
 <script>
+
 var useImage = 1;
 function selectImage(){
     var img1 = document.getElementById("displayImg");
@@ -74,8 +79,19 @@ function checkAuthor() {
         oops++;
         alert("Sorry");  
     }
+
+    if (oops > 6 ) {
+        let authButton = document.getElementById('authorBtn');
+        authButton.onclick = errorMsg ;
+    }
+    
     document.getElementById("goodCounter").innerHTML = `Good count : ${good}`;
     document.getElementById("oopsCounter").innerHTML = `Opps count : ${oops}`;
+    
+  
+}
+function errorMsg() {
+    alert("Sorry, ran out of guesses");
 }
 </script>
 
